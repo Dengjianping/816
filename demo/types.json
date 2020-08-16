@@ -1,0 +1,12 @@
+{
+    "Symbol": {
+        "_enum": [
+            "RMB",
+            "USD"
+        ]
+    },
+    "Token": {
+        "symbol": "Symbol",
+        "balance": "u128"
+    }
+}

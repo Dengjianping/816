@@ -80,6 +80,11 @@ pallet-transaction-payment = { version = "2.0.0-rc5", default-features = false, 
 pallet-transaction-payment-rpc-runtime-api = { version = "2.0.0-rc5", default-features = false, path = "../../../frame/transaction-payment/rpc/runtime-api/" }
 pallet-vesting = { version = "2.0.0-rc5", default-features = false, path = "../../../frame/vesting" }
 
+# token crates
+token = { path = "../../../demo/token", default-features = false }
+token-primitives = { path = "../../../demo/token-primitives", default-features = false }
+token-exchange = { path = "../../../demo/token-exchange", default-features = false }
+
 [build-dependencies]
 wasm-builder-runner = { version = "1.0.5", package = "substrate-wasm-builder-runner", path = "../../../utils/wasm-builder-runner" }
 
@@ -143,6 +148,9 @@ std = [
 	"pallet-society/std",
 	"pallet-recovery/std",
 	"pallet-vesting/std",
+	"token/std",
+	"token-primitives/std",
+	"token-exchange/std",
 ]
 runtime-benchmarks = [
 	"frame-benchmarking",

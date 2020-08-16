@@ -105,7 +105,7 @@ pub const VERSION: RuntimeVersion = RuntimeVersion {
 	// and set impl_version to 0. If only runtime
 	// implementation changes and behavior does not, then leave spec_version as
 	// is and increment impl_version.
-	spec_version: 256,
+	spec_version: 257,
 	impl_version: 0,
 	apis: RUNTIME_API_VERSIONS,
 	transaction_version: 1,
@@ -838,6 +838,17 @@ impl pallet_vesting::Trait for Runtime {
 	type WeightInfo = ();
 }
 
+// configure token for runtime
+impl token::Trait for Runtime {
+	type Event = Event;
+}
+
+// configure token exchange for runtime
+impl token_exchange::Trait for Runtime {
+	type Event = Event;
+	type TokenTrait = Token; // this is the key for decoupling modules
+}
+
 construct_runtime!(
 	pub enum Runtime where
 		Block = Block,
@@ -876,6 +887,9 @@ construct_runtime!(
 		Scheduler: pallet_scheduler::{Module, Call, Storage, Event<T>},
 		Proxy: pallet_proxy::{Module, Call, Storage, Event<T>},
 		Multisig: pallet_multisig::{Module, Call, Storage, Event<T>},
+		// construct token and exchange fo runtime
+		Token: token::{Module, Call, Storage, Event<T>},
+		TokenExchange: token_exchange::{Module, Call, Storage, Event<T>},
 	}
 );
 

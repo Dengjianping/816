@@ -3793,6 +3793,9 @@ dependencies = [
  "sp-version",
  "static_assertions",
  "substrate-wasm-builder-runner",
+ "token",
+ "token-exchange",
+ "token-primitives",
 ]
 
 [[package]]
@@ -8890,6 +8893,41 @@ checksum = "57a3c6667d3e65eb1bc3aed6fd14011c6cbc3a0665218ab7f5daf040b9ec371a"
 dependencies = [
  "serde",
  "serde_json",
+]
+
+[[package]]
+name = "token"
+version = "0.1.0"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "parity-scale-codec",
+ "serde",
+ "sp-runtime",
+ "sp-std",
+ "token-primitives",
+]
+
+[[package]]
+name = "token-exchange"
+version = "0.1.0"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "parity-scale-codec",
+ "serde",
+ "sp-runtime",
+ "sp-std",
+ "token",
+ "token-primitives",
+]
+
+[[package]]
+name = "token-primitives"
+version = "0.1.0"
+dependencies = [
+ "parity-scale-codec",
+ "serde",
 ]
 
 [[package]]
