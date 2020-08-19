@@ -253,6 +253,8 @@ construct_runtime!(
 现在可以去tokenExchange这个模块下的exchange接口进行交易，看能不能修改token的数据。
 
 ### 结语
-如果读者发现文章有不对地方或者建议，欢迎提出，避免误导大家，谢谢！
+如果读者发现文章有不对或者改进地方，欢迎提出，以避免误导大家，谢谢！
 
-努力学习Rust和Substrate吧！
+如果大家对[Bifrost](https://github.com/bifrost-finance/bifrost)项目感兴趣或者加入我们，可以联系[我们](jianping.deng@liebi.com)！
+
+一起努力学习Rust和Substrate吧！
