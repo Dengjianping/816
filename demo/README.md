@@ -24,17 +24,17 @@
 ```rust
 /// Runtime version.
 pub const VERSION: RuntimeVersion = RuntimeVersion {
-	spec_name: create_runtime_str!("node"),
-	impl_name: create_runtime_str!("substrate-node"),
-	authoring_version: 10,
-	// Per convention: if the runtime behavior changes, increment spec_version
-	// and set impl_version to 0. If only runtime
-	// implementation changes and behavior does not, then leave spec_version as
-	// is and increment impl_version.
-	spec_version: 256,
-	impl_version: 0,
-	apis: RUNTIME_API_VERSIONS,
-	transaction_version: 1,
+    spec_name: create_runtime_str!("node"),
+    impl_name: create_runtime_str!("substrate-node"),
+    authoring_version: 10,
+    // Per convention: if the runtime behavior changes, increment spec_version
+    // and set impl_version to 0. If only runtime
+    // implementation changes and behavior does not, then leave spec_version as
+    // is and increment impl_version.
+    spec_version: 256,
+    impl_version: 0,
+    apis: RUNTIME_API_VERSIONS,
+    transaction_version: 1,
 };
 ```
 
@@ -173,25 +173,25 @@ pub trait TokenTrait<AccountId> {
 代码可以参考[token](https://github.com/Dengjianping/816/blob/jamie816/demo/token/src/lib.rs#L94)模块部分
 ```rust
 impl<T: Trait> token_primitives::TokenTrait<T::AccountId> for Module<T> {
-	fn decrease(who: &T::AccountId, symbol: Symbol, amount: u128) {
-		<AccountToken<T>>::mutate((who, symbol), |token| {
-			token.balance = token.balance.saturating_sub(amount);
-		});
-	}
+    fn decrease(who: &T::AccountId, symbol: Symbol, amount: u128) {
+        <AccountToken<T>>::mutate((who, symbol), |token| {
+            token.balance = token.balance.saturating_sub(amount);
+        });
+    }
 
-	fn increase(who: &T::AccountId, symbol: Symbol, amount: u128) {
-		<AccountToken<T>>::mutate((who, symbol), |token| {
-			token.balance = token.balance.saturating_add(amount);
-		});
-	}
+    fn increase(who: &T::AccountId, symbol: Symbol, amount: u128) {
+        <AccountToken<T>>::mutate((who, symbol), |token| {
+            token.balance = token.balance.saturating_add(amount);
+        });
+    }
 
-	fn get_token(who: &T::AccountId, symbol: Symbol) -> Token {
-		<AccountToken<T>>::get((who, symbol))
-	}
+    fn get_token(who: &T::AccountId, symbol: Symbol) -> Token {
+        <AccountToken<T>>::get((who, symbol))
+    }
 
-	fn has_token(who: &T::AccountId, symbol: Symbol) -> bool {
-		<AccountToken<T>>::contains_key((who, symbol))
-	}
+    fn has_token(who: &T::AccountId, symbol: Symbol) -> bool {
+        <AccountToken<T>>::contains_key((who, symbol))
+    }
 }
 ```
 
